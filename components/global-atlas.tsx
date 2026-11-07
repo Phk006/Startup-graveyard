@@ -18,6 +18,7 @@ export default function GlobalAtlas() {
   const markerRefs = useRef<Marker[]>([]);
   const [selected, setSelected] = useState<StartupRecord | null>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [MarkerCtor, setMarkerCtor] = useState<typeof import("maplibre-gl").Marker | null>(null);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,7 +35,7 @@ export default function GlobalAtlas() {
     let createdMap: Map | null = null;
     if (!mapHost.current || mapRef.current) return;
 
-    import("maplibre-gl").then(({ default: maplibregl }) => {
+    import("maplibre-gl").then(({ default: maplibregl, Marker: MarkerClass }) => {
       if (cancelled || !mapHost.current) return;
       const map = new maplibregl.Map({
         container: mapHost.current,
@@ -49,6 +50,7 @@ export default function GlobalAtlas() {
       });
       createdMap = map;
       mapRef.current = map;
+      setMarkerCtor(() => MarkerClass);
       map.addControl(new maplibregl.NavigationControl({ visualizePitch: false }), "bottom-right");
       map.once("load", () => {
         if (!cancelled) setMapReady(true);
@@ -68,14 +70,13 @@ export default function GlobalAtlas() {
 
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !mapReady) return;
+    if (!map || !mapReady || !MarkerCtor) return;
     markerRefs.current.forEach((marker) => marker.remove());
     markerRefs.current = [];
 
     visibleRecords.forEach((record) => {
       const location = pointFor(record);
       if (!location || location.latitude === null || location.longitude === null) return;
-
       const element = document.createElement("button");
       element.type = "button";
       element.className = `startup-pin ${record.verification_status === "verified" ? "is-verified" : "is-review"}`;
@@ -90,27 +91,12 @@ export default function GlobalAtlas() {
           essential: true
         });
       });
-      const marker = new (requireMarker())({ element, anchor: "bottom" })
+      const marker = new MarkerCtor({ element, anchor: "bottom" })
         .setLngLat([location.longitude, location.latitude])
         .addTo(map);
       markerRefs.current.push(marker);
     });
-  }, [visibleRecords, mapReady]);
-
-  function requireMarker(): typeof Marker {
-    // Marker is loaded together with MapLibre's module in the browser effect.
-    // The actual constructor is retrieved from the map's owning module below.
-    return markerConstructor;
-  }
-
-  const markerConstructor = useRef<unknown>(null);
-  // The map module constructor is assigned by the loader effect using a safe browser import.
-  // This secondary effect keeps the component's render path free of WebGL imports.
-  useEffect(() => {
-    import("maplibre-gl").then(({ Marker: MarkerClass }) => {
-      markerConstructor.current = MarkerClass;
-    }).catch((error: unknown) => console.error("Unable to load map marker support", error));
-  }, []);
+  }, [visibleRecords, mapReady, MarkerCtor]);
 
   const openRecord = (record: StartupRecord) => {
     setSelected(record);
