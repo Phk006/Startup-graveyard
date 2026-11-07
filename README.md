@@ -1,4 +1,12 @@
 <div align="center">
+  <img
+    src="https://raw.githubusercontent.com/Phk006/Startup-graveyard/main/public/assets/graveyard-earth.png"
+    alt="Earth — The Graveyard"
+    width="100%"
+  />
+</div>
+
+<div align="center">
 
 <!-- EARTH VIDEO GIF — keep this as the first visible element in the README -->
 <img src="https://raw.githubusercontent.com/Phk006/Startup-graveyard/main/public/assets/graveyard-globe.gif" alt="Cinematic Earth animation — The Graveyard" width="100%" />
