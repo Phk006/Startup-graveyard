@@ -2,6 +2,12 @@
   "name": "the-graveyard",
   "version": "0.1.0",
   "private": true,
+  "description": "A global, evidence-first atlas of startup shutdowns and business failures.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Phk006/Startup-graveyard.git"
+  },
+  "homepage": "https://dancing-gumption-3b93b4.netlify.app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
