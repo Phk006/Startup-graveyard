@@ -1,3 +1,10 @@
+<div align="center">
+  <img
+    src="https://raw.githubusercontent.com/Phk006/Startup-graveyard/main/public/assets/graveyard-globe.gif"
+    width="100%"
+    alt="Cinematic Earth animation"
+  />
+</div>
 <p align="center">
   <img src="https://raw.githubusercontent.com/Phk006/Startup-graveyard/main/public/assets/graveyard-globe.gif" width="100%" alt="Animated globe for The Graveyard"/>
 </p>
