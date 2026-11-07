@@ -1,0 +1,38 @@
+name: Validate seed data
+on:
+  push:
+    paths:
+      - 'data/**'
+      - 'src/types.ts'
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'src/types.ts'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate JSON syntax and basic invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          schema = json.loads(Path('data/startups.schema.json').read_text())
+          records = json.loads(Path('data/startups.seed.json').read_text())
+          assert isinstance(records, list)
+          ids = [r['id'] for r in records]
+          assert len(ids) == len(set(ids)), 'duplicate startup IDs'
+          for r in records:
+              assert r.get('sources'), f"{r.get('name')} has no source"
+              for loc in r.get('locations', []):
+                  lat, lon = loc.get('latitude'), loc.get('longitude')
+                  assert (lat is None) == (lon is None), f"incomplete coordinates: {r['name']}"
+                  if lat is not None:
+                      assert -90 <= lat <= 90 and -180 <= lon <= 180
+          print(f'Validated {len(records)} seed records')
+          PY
