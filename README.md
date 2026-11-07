@@ -1,17 +1,22 @@
 <div align="center">
-  <img
-    src="https://raw.githubusercontent.com/Phk006/Startup-graveyard/main/public/assets/graveyard-earth.png"
-    alt="Earth — The Graveyard"
-    width="100%"
-  />
-</div>
 
-<div align="center">
+<!-- Earth intro animation: replace this file with the optimized GIF generated from your MP4 -->
+<img src="https://raw.githubusercontent.com/Phk006/Startup-graveyard/main/public/assets/graveyard-globe.gif" alt="Cinematic Earth animation — The Graveyard" width="100%"/>
 
-<!-- EARTH VIDEO GIF — keep this as the first visible element in the README -->
-<img src="https://raw.githubusercontent.com/Phk006/Startup-graveyard/main/public/assets/graveyard-globe.gif" alt="Cinematic Earth animation — The Graveyard" width="100%" />
+<br/>
 
-<br />
+<img src="https://readme-typing-svg.demolab.com?font=Space+Mono&weight=700&size=23&pause=900&color=77D9D0&center=true&vCenter=true&width=850&lines=Every+startup+has+a+story.;Every+failure+leaves+evidence.;Map+the+past.+Learn+for+the+future." alt="Animated project tagline"/>
+
+# ⚰️ THE GRAVEYARD
+### Global Startup Failure Intelligence Atlas
+
+**A global learning archive of startup shutdowns, insolvencies, and the lessons behind them.**
+
+[🌐 Live Website](https://dancing-gumption-3b93b4.netlify.app) · [💻 GitHub Repository](https://github.com/Phk006/Startup-graveyard)
+
+<img src="https://img.shields.io/badge/PROJECT-RESEARCH%20PROTOTYPE-77D9D0?style=for-the-badge" alt="Research prototype"/>
+<img src="https://img.shields.io/badge/SCOPE-GLOBAL-385D7A?style=for-the-badge" alt="Global scope"/>
+<img src="https://img.shields.io/badge/TIMELINE-2000%E2%80%932026-EF777C?style=for-the-badge" alt="Timeline"/>
 
 </div>
 
