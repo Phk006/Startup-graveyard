@@ -1,152 +1,135 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Phk006/Startup-graveyard/main/public/assets/graveyard-globe.gif" width="100%" alt="Animated globe for The Graveyard"/>
-</p>
+<div align="center">
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=900&color=75C9C4&center=true&vCenter=true&width=760&lines=Every+startup+has+a+story.;Every+failure+leaves+evidence.;Map+the+past.+Learn+for+the+future." alt="Animated project tagline"/>
-</p>
+<!-- Earth intro animation: replace this file with the optimized GIF generated from your MP4 -->
+<img src="https://raw.githubusercontent.com/Phk006/Startup-graveyard/main/public/assets/graveyard-globe.gif" alt="Cinematic Earth animation — The Graveyard" width="100%"/>
 
-<h1 align="center">⚰️ THE GRAVEYARD</h1>
-<h3 align="center">Global Startup Failure Intelligence Atlas</h3>
-<p align="center">
-  <a href="https://dancing-gumption-3b93b4.netlify.app"><strong>🌐 Explore the Live Website</strong></a> ·
-  <a href="https://github.com/Phk006/Startup-graveyard"><strong>💻 Source Code</strong></a>
-</p>
+<br/>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Research%20Prototype-75C9C4?style=for-the-badge" alt="Project status"/>
-  <img src="https://img.shields.io/badge/Coverage%20Goal-2000%E2%80%932026-FF777B?style=for-the-badge" alt="Coverage"/>
-  <img src="https://img.shields.io/badge/Focus-Global%20Startup%20Intelligence-426A8C?style=for-the-badge" alt="Focus"/>
-</p>
+<img src="https://readme-typing-svg.demolab.com?font=Space+Mono&weight=700&size=23&pause=900&color=77D9D0&center=true&vCenter=true&width=850&lines=Every+startup+has+a+story.;Every+failure+leaves+evidence.;Map+the+past.+Learn+for+the+future." alt="Animated project tagline"/>
 
----
+# ⚰️ THE GRAVEYARD
+### Global Startup Failure Intelligence Atlas
 
-## 🌍 What is The Graveyard?
+**A global learning archive of startup shutdowns, insolvencies, and the lessons behind them.**
 
-**The Graveyard** is a research-led platform that aims to make startup failure history easier to explore, understand and learn from.
+[🌐 Live Website](https://dancing-gumption-3b93b4.netlify.app) · [💻 GitHub Repository](https://github.com/Phk006/Startup-graveyard)
 
-Startup stories are usually celebrated at launch and funding milestones. But when a venture shuts down, restructures, enters insolvency, or discontinues a product, the lessons are scattered across news reports, company announcements, court records and founder reflections.
+<img src="https://img.shields.io/badge/PROJECT-RESEARCH%20PROTOTYPE-77D9D0?style=for-the-badge" alt="Research prototype"/>
+<img src="https://img.shields.io/badge/SCOPE-GLOBAL-385D7A?style=for-the-badge" alt="Global scope"/>
+<img src="https://img.shields.io/badge/TIMELINE-2000%E2%80%932026-EF777C?style=for-the-badge" alt="Timeline"/>
 
-The Graveyard brings these stories into one organised experience — searchable by company, geography, industry and year — while preserving the context and evidence behind each record.
-
-> **The idea is not to celebrate failure. It is to make the lessons of failure accessible.**
-
-### 🔗 Live project
-**[dancing-gumption-3b93b4.netlify.app](https://dancing-gumption-3b93b4.netlify.app)**
+</div>
 
 ---
 
-## ✨ What the project is designed to do
+## 🌍 The idea
 
-- **Explore a global archive:** discover startups across countries, cities and industries.
-- **Understand what happened:** distinguish a shutdown from bankruptcy, liquidation, acquisition, restructuring or product discontinuation.
-- **Study failure patterns:** explore recurring themes such as weak unit economics, funding dependency, market timing, operational complexity and product-market fit.
-- **Learn from company journeys:** connect the founding story, growth phase, major events and eventual outcome.
-- **Keep evidence visible:** attach sources and confidence levels to claims instead of presenting unverified stories as facts.
-- **Support better decisions:** help students, founders, researchers and ecosystem builders learn from previous attempts.
+**The Graveyard** is a research-led platform built around one question:
 
-The long-term product direction is an interactive, Google-Maps-style geographical atlas with zoomable locations, map pins, filters, company profiles and a chronological failure timeline.
+> What can we learn from the startups that didn't make it?
 
----
+The startup ecosystem documents launches, funding rounds and success stories in detail. The stories of businesses that close, restructure, enter insolvency or discontinue products are often scattered across news articles, company announcements and public records.
 
-## 🧰 Technology used in the current project
+The Graveyard aims to bring those stories together in one searchable, geographically explorable archive — with evidence and context attached to each record.
 
-This section separates what is present in the current starter from what is part of the proposed next-stage architecture.
+**This is not a platform that celebrates failure. It is a platform that preserves the lessons.**
 
-| Technology / Tool | How it is used |
+## ✨ What users will be able to explore
+
+- **Global startup archive** — browse companies by country, city, industry and year.
+- **Failure journeys** — understand the events leading to a shutdown or other outcome.
+- **Company profiles** — explore founders, business model, product, funding history and timeline when reliable information is available.
+- **Failure patterns** — examine recurring challenges such as weak unit economics, poor retention, market timing and operational complexity.
+- **Evidence and sources** — trace important claims back to source material and see when information is uncertain.
+- **Geographic discovery** — the planned map interface will let users zoom from the world to countries, cities and documented company locations.
+
+## 🧰 Technology and tools
+
+### Current starter implementation
+
+| Technology | Role in the project |
 |---|---|
-| **HTML5** | Provides the page structure and semantic content. |
-| **CSS3** | Handles the dark visual theme, responsive layout, typography, cards and styling. |
-| **JavaScript (ES modules)** | Powers archive rendering, search, filtering and dynamic UI updates. |
-| **Vite** | Provides the frontend development server and production build pipeline. |
-| **JSON** | Stores structured startup research records for the frontend. |
-| **CSV** | Provides a portable dataset format for review, analysis and spreadsheet workflows. |
-| **Animated GIF** | Adds the animated globe visual to the project introduction and README. |
-| **Git & GitHub** | Version control, source-code hosting and project collaboration. |
-| **Netlify** | Hosts the public live website. |
+| **HTML5** | Semantic structure and page content |
+| **CSS3** | Dark visual identity, responsive layout and component styling |
+| **JavaScript (ES modules)** | Dynamic archive rendering, search and filtering |
+| **Vite** | Local development server and production build |
+| **JSON** | Structured startup candidate records consumed by the frontend |
+| **CSV** | Portable dataset for spreadsheet review and analysis |
+| **Git + GitHub** | Version control, source hosting and collaboration |
+| **Netlify** | Hosting for the public website |
+| **GIF** | Looping Earth visual used as the README hero animation |
 
-### Current implementation flow
+### Planned architecture
+
+The following components describe the intended next stage; they should not be mistaken for features already shipped.
+
+| Technology | Planned use |
+|---|---|
+| **Next.js + TypeScript** | Scalable application architecture and typed data models |
+| **Google Maps Platform / MapLibre** | Interactive map, geographic navigation and startup markers |
+| **Supabase + PostgreSQL** | Persistent application database and APIs |
+| **PostGIS** | Geographic indexing and location-based queries |
+| **Geocoding service** | Convert verified historical addresses into coordinates |
+| **Scheduled jobs** | Periodic source checks and dataset refresh workflows |
+| **Admin review interface** | Source verification, duplicate resolution and record corrections |
+
+### Current data flow
 
 ```mermaid
-flowchart TD
-    A[Startup research candidates] --> B[JSON / CSV dataset]
-    B --> C[Vite + JavaScript frontend]
-    C --> D[Search and filters]
-    D --> E[Startup archive interface]
-    F[GitHub repository] --> G[Version control]
-    G --> H[Netlify deployment]
-    H --> I[Public website]
+flowchart LR
+  A[Research candidates] --> B[JSON / CSV]
+  B --> C[Vite frontend]
+  C --> D[Search and filters]
+  D --> E[Startup archive]
+  F[GitHub] --> G[Version control]
+  G --> H[Netlify build and deploy]
+  H --> I[Live website]
 ```
 
-### Proposed architecture for the full atlas
+## 🤝 Why this can matter to society
 
-The following are **planned technologies**, not claims that every component is already implemented:
+### 🎓 Students and aspiring entrepreneurs
+Learn practical lessons beyond textbook success stories: pricing, customer discovery, cash flow, distribution, retention and business-model validation.
 
-| Planned technology | Intended responsibility |
+### 🚀 Founders and startup teams
+Use documented cases to recognise risk signals earlier — including unsustainable acquisition costs, over-expansion, funding dependency and weak product-market fit.
+
+### 🏫 Universities, incubators and entrepreneurship cells
+Turn real company histories into classroom case studies, workshops and discussions about responsible entrepreneurship.
+
+### 🔬 Researchers and policy thinkers
+A well-sourced dataset can help study patterns across sectors, geographies and time periods. This may support more evidence-based discussions about startup ecosystems.
+
+### 💼 Investors, mentors and ecosystem builders
+Use historical cases as a learning resource for better diligence questions and a deeper understanding of operational risks.
+
+### 🌱 Society
+Encourage a healthier view of entrepreneurial failure: not shame or blind glorification, but honest accountability, learning and informed second attempts.
+
+**The intended social impact is simple: preserve knowledge that might otherwise disappear when a company closes.**
+
+## 🧭 Data integrity comes first
+
+A company shutting down is not automatically the same as bankruptcy. The archive must distinguish:
+
+| Outcome | Meaning |
 |---|---|
-| **Next.js + TypeScript** | Scalable application structure, typed data models and server-side functionality. |
-| **Google Maps Platform or MapLibre** | Interactive global map, zoom levels, location markers and map navigation. |
-| **Supabase / PostgreSQL + PostGIS** | Persistent startup records and efficient geographic queries. |
-| **Geocoding service** | Convert verified historical addresses into coordinates. |
-| **Scheduled ingestion jobs** | Periodically discover updates and flag records for review. |
-| **Admin review dashboard** | Verify sources, resolve duplicates, correct locations and approve changes. |
-
----
-
-## 🧭 How the data should work
-
-A failure archive must be more careful than a list of companies that disappeared.
-
-### Different outcomes must stay different
-
-| Classification | Meaning |
-|---|---|
-| Bankruptcy / insolvency | Formal legal process, supported by reliable legal or regulatory evidence. |
-| Liquidation | Winding up a company and distributing its assets under the relevant process. |
-| Administration | A jurisdiction-specific formal process; not interchangeable with every shutdown. |
-| Shutdown | Operations ceased, but formal bankruptcy has not been established. |
-| Product discontinued | A product ended while its parent company may continue operating. |
-| Acquisition / restructuring | Ownership or operations changed; not automatically a company failure. |
+| **Bankruptcy / insolvency** | A formal legal process supported by authoritative evidence |
+| **Liquidation** | A process to wind up a company and realise/distribute assets |
+| **Administration** | A jurisdiction-specific formal process |
+| **Shutdown** | Operations ceased; formal insolvency may not be established |
+| **Product discontinued** | A product ended while its parent company may continue |
+| **Acquisition / restructuring** | Ownership or operations changed; not automatically a failure |
 
 ### Location accuracy
 
-The map should distinguish a documented historical office address from a city-level approximation. A city-centre coordinate must never be presented as the exact location of a startup's former office.
+The map must not turn an approximate city location into a supposedly exact historical office address. Founding location, operating location, historical headquarters and registered address should be stored separately when known.
 
-Each location should eventually include:
-- Location type: founding location, operating office, historical HQ or registered address.
-- Latitude and longitude, only when supported by evidence.
-- Precision level: address, campus, city or region.
-- Source URL and verification status.
+Coordinates should be added only when supported by a documented historical address. Unknown coordinates should remain empty and carry an explicit confidence/precision label.
 
 ### Dataset status
 
-The starter dataset contains **39 candidate records**. They are research leads, not a verified global failure database. Dates, explanations and classifications need company-level source checks. Coordinate fields are deliberately empty rather than fabricated.
-
----
-
-## 🤝 How can The Graveyard be useful to society?
-
-### 1. For students and aspiring entrepreneurs
-Students can learn that building a company involves much more than a good idea. They can study pricing, distribution, customer retention, operations, cash flow and timing through real-world examples.
-
-### 2. For founders and startup teams
-Founders can identify recurring warning signs before they become existential problems — for example, unsustainable acquisition costs, weak retention, excessive burn or dependence on a single funding source.
-
-### 3. For educators and institutions
-Faculty members, entrepreneurship cells and incubators can use documented company journeys as case studies for classroom discussions, startup workshops and business-model analysis.
-
-### 4. For researchers and policy thinkers
-A structured, source-linked archive can help researchers examine patterns across sectors, regions and time periods. With sufficient verified data, it may support analysis of why certain business models struggle in particular markets.
-
-### 5. For investors and ecosystem builders
-Investors, mentors and incubators can use the archive as a learning resource to ask better diligence questions and understand risks that may be overlooked during periods of rapid growth.
-
-### 6. For society at large
-It can help replace the stigma around failure with a more informed conversation: honest accountability, evidence, learning and the possibility of trying again.
-
-**The social value:** preserving lessons that might otherwise disappear when a startup shuts down.
-
----
+The initial dataset contains **39 research candidates**. These are starting points for investigation, not a fully verified global failure register. Dates, reasons and legal classifications must be checked against company statements, court or regulator records, and reliable reporting before being treated as confirmed.
 
 ## 🗂️ Repository structure
 
@@ -167,11 +150,8 @@ startup-graveyard/
 ├── index.html
 ├── package.json
 ├── .gitignore
-├── LICENSE
-└── README.md
+└── LICENSE
 ```
-
----
 
 ## 🚀 Run locally
 
@@ -184,57 +164,58 @@ npm install
 npm run dev
 ```
 
-Create a production build:
+Create and preview a production build:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-### Netlify deployment settings
+### Netlify deployment
 
 - **Build command:** `npm run build`
 - **Publish directory:** `dist`
 
-Connect the GitHub repository to Netlify to enable deployments when changes are pushed to the configured branch.
+Connect the GitHub repository to Netlify to enable deployment from your chosen branch.
 
----
+## 🛣️ Roadmap
 
-## 🧪 Roadmap
-
-- [x] Initial responsive frontend starter
+- [x] Responsive frontend starter
 - [x] Searchable and filterable candidate archive
 - [x] JSON and CSV data formats
-- [x] Animated project introduction asset
-- [x] Research methodology and contribution notes
-- [ ] Source verification for every startup record
-- [ ] Historical address research and coordinate validation
-- [ ] Interactive global map and marker clustering
-- [ ] Detailed startup profiles and failure timelines
-- [ ] Geographic and industry-level analytics
-- [ ] Admin review and duplicate-resolution workflow
-- [ ] Scheduled, source-attributed update pipeline
-
----
+- [x] Project README visual identity
+- [x] Research methodology and contribution guidance
+- [ ] Verify every company record against reliable sources
+- [ ] Research historical addresses and validate coordinates
+- [ ] Build interactive world map and marker clustering
+- [ ] Add company profiles and chronological failure timelines
+- [ ] Add industry, geography and year analytics
+- [ ] Build admin verification and duplicate-review tools
+- [ ] Add source-attributed scheduled data updates
 
 ## 📚 Research principles
 
 1. Prefer company statements, court records, regulator filings and reputable reporting.
-2. Cite the source for the failure event and, separately where possible, the stated cause.
+2. Cite the source for the failure event and, where possible, a separate source for the stated cause.
 3. Preserve publication dates and access dates.
 4. Never infer bankruptcy from a product closure or acquisition.
-5. Never invent dates, funding amounts, founders or coordinates.
-6. Clearly label uncertainty and allow corrections.
+5. Never invent dates, founders, funding amounts or coordinates.
+6. Clearly label uncertainty and support corrections.
 
-See [Data Methodology](docs/DATA_METHODOLOGY.md) and [Contributing](docs/CONTRIBUTING.md).
+Read the [Data Methodology](docs/DATA_METHODOLOGY.md) and [Contributing Guide](docs/CONTRIBUTING.md) before adding records.
 
 ## ⚖️ Disclaimer
 
-The Graveyard is an educational research project. It is not legal, financial or investment advice. Company status can change, and historical reporting may be incomplete. Records should be independently verified before being relied upon.
+The Graveyard is an educational research project, not legal, financial or investment advice. Company status can change, and historical reporting may be incomplete. Independently verify records before relying on them.
+
+<div align="center">
 
 ---
 
-<p align="center">
-  <strong>THE GRAVEYARD</strong><br/>
-  <em>Every ending leaves a lesson. Make sure we don't lose it.</em>
-</p>
+**THE GRAVEYARD**
+
+*Every ending leaves a lesson. Make sure we don't lose it.*
+
+[Explore the live project →](https://dancing-gumption-3b93b4.netlify.app)
+
+</div>
