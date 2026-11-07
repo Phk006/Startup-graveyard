@@ -71,31 +71,30 @@ export default function GlobalAtlas() {
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !mapReady || !MarkerCtor) return;
-    markerRefs.current.forEach((marker) => marker.remove());
-    markerRefs.current = [];
-
-    visibleRecords.forEach((record) => {
-      const location = pointFor(record);
-      if (!location || location.latitude === null || location.longitude === null) return;
-      const element = document.createElement("button");
-      element.type = "button";
-      element.className = `startup-pin ${record.verification_status === "verified" ? "is-verified" : "is-review"}`;
-      element.setAttribute("aria-label", `Open ${record.name}; ${location.precision.replaceAll("_", " ")}`);
-      element.title = `${record.name} · ${location.precision.replaceAll("_", " ")}`;
-      element.addEventListener("click", () => {
-        setSelected(record);
-        map.flyTo({
-          center: [location.longitude as number, location.latitude as number],
-          zoom: location.precision === "exact_address" ? 14 : location.precision === "neighbourhood" ? 11 : 8.5,
-          duration: 1500,
-          essential: true
+    const renderMarkers = () => {
+      markerRefs.current.forEach((marker) => marker.remove());
+      markerRefs.current = [];
+      visibleRecords.forEach((record) => {
+        const location = pointFor(record);
+        if (!location || location.latitude === null || location.longitude === null) return;
+        const element = document.createElement("button");
+        element.type = "button";
+        element.className = `startup-pin ${record.verification_status === "verified" ? "is-verified" : "is-review"}`;
+        element.setAttribute("aria-label", `Open ${record.name}; ${location.precision.replaceAll("_", " ")}`);
+        element.title = `${record.name} · ${location.precision.replaceAll("_", " ")}`;
+        element.addEventListener("click", () => {
+          setSelected(record);
+          map.flyTo({ center: [location.longitude as number, location.latitude as number], zoom: location.precision === "exact_address" ? 14 : location.precision === "neighbourhood" ? 11 : 8.5, duration: 1500, essential: true });
         });
+        const marker = new MarkerCtor({ element, anchor: "bottom" })
+          .setLngLat([location.longitude, location.latitude])
+          .addTo(map);
+        markerRefs.current.push(marker);
       });
-      const marker = new MarkerCtor({ element, anchor: "bottom" })
-        .setLngLat([location.longitude, location.latitude])
-        .addTo(map);
-      markerRefs.current.push(marker);
-    });
+    };
+    if (map.isStyleLoaded()) renderMarkers();
+    else map.once("load", renderMarkers);
+    return () => { map.off("load", renderMarkers); };
   }, [visibleRecords, mapReady, MarkerCtor]);
 
   const openRecord = (record: StartupRecord) => {
@@ -124,17 +123,8 @@ export default function GlobalAtlas() {
       </header>
 
       {menuOpen && <section className="filter-popover" aria-label="Failure filters">
-        <div className="popover-title"><strong>Filter events</strong><button type="button" onClick={() => setMenuOpen(false)}>Done</button></div>
-        {[
-          ["all", "All classifications"],
-          ["formal_bankruptcy", "Formal bankruptcy"],
-          ["insolvency", "Insolvency"],
-          ["liquidation", "Liquidation"],
-          ["shutdown", "Company shutdown"],
-          ["distressed_acquisition", "Distressed acquisition"],
-          ["restructuring", "Restructuring"],
-          ["product_discontinuation", "Product discontinued"]
-        ].map(([value, label]) => <label className="filter-option" key={value}><input type="radio" name="classification" checked={category === value} onChange={() => setCategory(value)} />{label}</label>)}
+        <div className="popover-title"><strong>Filter events</strong><button type="button" onClick={() => { setCategory("all"); setMenuOpen(false); }}>Done</button></div>
+        {[['all', 'All classifications'], ['formal_bankruptcy', 'Formal bankruptcy'], ['insolvency', 'Insolvency'], ['liquidation', 'Liquidation'], ['shutdown', 'Company shutdown'], ['distressed_acquisition', 'Distressed acquisition'], ['restructuring', 'Restructuring'], ['product_discontinuation', 'Product discontinued']].map(([value, label]) => <label className="filter-option" key={value}><input type="radio" name="classification" checked={category === value} onChange={() => setCategory(value)} />{label}</label>)}
       </section>}
 
       <aside className="left-rail">
@@ -162,7 +152,7 @@ export default function GlobalAtlas() {
             <h2>{selected.name}</h2>
             <p className="summary">{selected.description ?? selected.failure_summary}</p>
             <div className="status-line"><span className="status-pill">{selected.failure_classification.replaceAll("_", " ")}</span><span className="review-pill">{selected.verification_status.replaceAll("_", " ")}</span></div>
-            <div className="detail-grid"><div><small>Founded</small><strong>{selected.founded_year ?? selected.founded_date?.slice(0, 4) ?? "Not recorded"}</strong></div><div><small>Failure event</small><strong>{selected.failure_event_date ?? "Not recorded"}</strong></div></div>
+            <div className="detail-grid"><div><small>Founded</small><strong>{selected.founded_year?.toString() ?? selected.founded_date?.slice(0, 4) ?? "Not recorded"}</strong></div><div><small>Failure event</small><strong>{selected.failure_event_date ?? "Not recorded"}</strong></div></div>
             <section className="drawer-section"><h3>Why it failed</h3>{selected.failure_causes.length ? <ul>{selected.failure_causes.map((cause) => <li key={cause}>{cause}</li>)}</ul> : <p>Failure analysis requires further research.</p>}</section>
             <section className="drawer-section"><h3>Location history</h3>{selected.locations.map((location, index) => <div className="location-card" key={`${selected.id}-${index}`}><strong>{[location.city, location.region, location.country].filter(Boolean).join(", ") || "Location unavailable"}</strong><span>{location.location_type.replaceAll("_", " ")} · {location.precision.replaceAll("_", " ")}</span>{location.latitude !== null && location.longitude !== null && <code>{location.latitude.toFixed(5)}, {location.longitude.toFixed(5)}</code>}</div>)}</section>
             <section className="drawer-section"><h3>Sources</h3>{selected.sources.map((source) => <a className="source-link" key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.title ?? source.publisher ?? source.url}<span>↗</span></a>)}</section>
